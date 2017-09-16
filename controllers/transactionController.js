@@ -27,7 +27,8 @@ transactionController={
             amount:req.body.amount,
             receipt:req.body.receipt,
             category_id:req.body.category_id,
-        }, req.params.id).then(transaction=>{
+            id:req.params.id,
+        }).then(transaction=>{
             res.json({
                 message:"Done",
                 data:transaction,
@@ -39,7 +40,7 @@ transactionController={
     },
 
     findAll: function (req, res){
-        Transaction.findAll(req.params.user_id)
+        Transaction.findAll(req.params.userid)
         .then(transaction => {
             res.json({
                 message: 'Done',
