@@ -1,7 +1,7 @@
 {
-  "name": "occurio",
+  "name": "myFinancesmanager",
   "version": "1.0.0",
-  "description": "Simple Project Mgmt App",
+  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,16 +9,8 @@
     "dev": "nodemon app.js",
     "debugger": "DEBUG=*:* nodemon app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Cityslick/Occurio.git"
-  },
-  "author": "Aury Rodriguez, Jason Rowland, Rajiste Bennin, Tom Santos",
+  "author": "Aury Rodriguez",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Cityslick/Occurio/issues"
-  },
-  "homepage": "https://github.com/Cityslick/Occurio#readme",
   "dependencies": {
     "app-notify": "^2.0.2",
     "axios": "^0.16.2",

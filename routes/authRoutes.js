@@ -5,10 +5,6 @@ const authHelpers = require('../services/auth/auth-helpers');
 const usersController = require('../controllers/usersController');
 
 
-
-authRouter.post('/', usersController.create);
-authRouter.put('/:id', usersController.update);
-
 authRouter.post('/login', passport.authenticate('local', {
     successRedirect: '/auth/success',
     failureRedirect: '/auth/failure',

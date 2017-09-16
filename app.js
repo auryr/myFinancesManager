@@ -44,11 +44,11 @@ app.use("/auth", authRoutes)
 const userRoutes = require("./routes/userRoutes");
 app.use("/users", userRoutes)
 
-// const categoryRoutes = require("./routes/categoryRoutes");
-// app.use("/categories", categoryRoutes);
+const categoryRoutes = require("./routes/categoryRoutes");
+app.use("/categories", categoryRoutes);
 
-// const transactionRoutes= require("./routes/transactionRoutes");
-// app.use("/transaction", transactionRoutes);
+const transactionRoutes= require("./routes/transactionRoutes");
+app.use("/transactions", transactionRoutes);
 
 // const noteRoutes= require("./routes/noteRoutes");
 // app.use("/notes", noteRoutes);
