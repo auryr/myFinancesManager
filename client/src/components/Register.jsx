@@ -41,7 +41,7 @@ class Register extends Component {
     render(){
         return(
             <div className="main-container2">
-              <div className="sub-container2">
+                <div className="sub-container2">
                     <form onSubmit={(e)=>this.props.handleRegisterSubmit(
                     e,
                     this.state.username,
@@ -53,7 +53,7 @@ class Register extends Component {
                     this.state.auth_token
                     )}>
                         <div>
-                            <h2 className="hero-text2">Create an Okurio Account!</h2>
+                            <h2 className="hero-text2">Create account</h2>
                         </div>
 
                         <div className="input-container">

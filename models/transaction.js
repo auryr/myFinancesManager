@@ -14,11 +14,17 @@ const Transaction = {
     },
 
     findAll : function(user_id){
-        return db.query("SELECT t.* FROM transaction t inner join category c on t.category_id = c.id  WHERE user_id=$1 ",[user_id]);
+        return db.query("SELECT t.*,c.name,c.operation FROM transaction t inner join category c on t.category_id = c.id  WHERE user_id=$1 ",[user_id]);
     },
 
     findById : function(transactionId){
         return db.one("SELECT *  FROM transaction WHERE id=$1", [transactionId]);
+    },
+
+    findByDate : function(filter){
+      console.log(filter);
+        return db.query("SELECT t.*,c.name,c.operation FROM transaction t inner join category c on t.category_id = c.id  WHERE user_id=$1  and trdate BETWEEN  $2 and $3 ",[ filter.user_id,
+          filter.initdate,filter.enddate]);
     },
 
     delete : function(transactionId){

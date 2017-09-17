@@ -29,6 +29,8 @@ class Header extends Component {
               <ul className="nav-list">
                 <li className="nav-item "><Link to={'/login'}>{this.state.menuDescription}</Link></li>
                 <li className="nav-item" ><Link to={'/'}  > Log out</Link></li>
+                <li className="nav-item" ><Link to={'/categories'}  > Categories</Link></li>
+                <li className="nav-item" ><Link to={'/transactions'}  > Transactions</Link></li>
               </ul>
             </div>
       </header>

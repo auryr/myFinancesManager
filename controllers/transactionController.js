@@ -63,6 +63,22 @@ transactionController={
         })
     },
 
+    findByDate: function (req, res){
+        Transaction.findByDate({
+            user_id:  req.body.user_id,
+            initdate: req.body.initdate,
+            enddate:  req.body.enddate,
+        })
+        .then(transaction => {
+            res.json({
+                message: 'Done',
+                data: transaction,
+            });
+        }).catch(err =>{
+            res.status(500).json(err);
+        })
+    },
+
     delete: function (req, res){
         Transaction.delete(req.params.id)
         .then(()=>{

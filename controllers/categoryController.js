@@ -7,7 +7,6 @@ categoryController={
             name :req.body.name,
             description:req.body.description,
             include:req.body.include,
-            status:req.body.status,
             operation:req.body.operation,
             user_id:req.body.user_id,
         }).then( category =>{
