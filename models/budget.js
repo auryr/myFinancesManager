@@ -15,7 +15,7 @@ const Budget = {
     },
 
     findAll : function(){
-        return db.query("SELECT u.username, concat(u.firstname , ' ' , u.lastname) as fullname, c.* FROM budget c INNER JOIN  users u on c.user_id= u.id order by c.id ");
+        return db.query("SELECT u.username, concat(u.firstname , ' ' , u.lastname) as fullname, b.* FROM budget b INNER JOIN  users u on c.user_id= u.id order by c.id ");
     },
 
 

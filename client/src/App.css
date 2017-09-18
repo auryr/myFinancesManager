@@ -30,6 +30,7 @@ label{
     font-size: 20px;
     margin: 4px;
     color: #;
+    font-weight: bold;
 }
 
 input[type=text],input[type=password]
@@ -60,7 +61,6 @@ input[type=email],input[type=date],input[type=password],
   }
 
 select {
-    background: linear-gradient(#F2F2F2, #D4D4D4);
     margin:auto;
     margin-bottom: 2px;
     display: inline-block;
@@ -109,6 +109,7 @@ input[type=submit], .button-span {
 label{
     text-align: right;
     font-size: 20px;
+    font-weight: bold;
     margin: 4px;
     color: #f7b733;
 }
@@ -208,6 +209,7 @@ label{
     width:20%;
     margin: 4px;
     font-size: 2.5vh;
+    font-weight: bold;
 }
 
 
@@ -273,6 +275,7 @@ label{
     margin: 4px;
     font-size: 2.5vh;
     color:  #f7b733;
+    font-weight: bold;
   }
 
   .input-container > .normal-input,textarea {
@@ -302,6 +305,7 @@ label{
     margin: 4px;
     font-size: 2.5vh;
     color:  #f7b733;
+    font-weight: bold;
   }
 
 /*****************inputs container ***********************************************************/
@@ -321,6 +325,7 @@ label{
     margin: 4px;
     font-size: 2.5vh;
     color:  #f7b733;
+    font-weight: bold;
   }
 
 
@@ -348,6 +353,7 @@ label{
     width:100%;
     margin: 4px;
     font-size: 2.5vh;
+    font-weight: bold;
 }
 
 
@@ -678,14 +684,6 @@ a:active {
   flex-direction: column;
   justify-content: center;
 }
-
-.edit-input > label {
-  margin: 10px;
-}
-
-.edit-input > input {
-    width: 40%;
-  }
 
 .hero-quote {
   color: #EDE9E9;

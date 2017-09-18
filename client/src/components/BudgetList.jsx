@@ -4,15 +4,15 @@ import {
   Link
 } from 'react-router-dom';
 
-class CategoryList extends Component {
+class BudgetList extends Component {
   	constructor() {
     	super();
     	this.state = {
       		categoryData: null,
       		categoryDataLoaded: false,
     	},
-    	this.renderCategoryList =this.renderCategoryList.bind(this);
-    	this.handlerDeleteCategory = this.handlerDeleteCategory.bind(this);
+    	this.renderBudgetList =this.renderBudgetList.bind(this);
+    	this.handlerDeleteBudget = this.handlerDeleteBudget.bind(this);
   	}
 
   	componentDidMount() {
@@ -32,7 +32,7 @@ class CategoryList extends Component {
     	})
   	}
 
-  	handlerDeleteCategory(category_id){
+  	handlerDeleteBudget(category_id){
     	axios.delete(`categories/${category_id}`).then(()=>{
       		this.handlerReloadList();
     	}).catch(err=>{
@@ -40,7 +40,7 @@ class CategoryList extends Component {
     	})
   	}
 
-  	renderCategoryList() {
+  	renderBudgetList() {
 
     	    if (this.state.categoryDataLoaded) {
       		return this.state.categoryData.map((category,index) => {
@@ -59,7 +59,7 @@ class CategoryList extends Component {
 			            <div className="transaction-button">
 				      		<input type="submit" value="Delete"
 					       onClick={
-					       		()=>{this.handlerDeleteCategory(category.id)}
+					       		()=>{this.handlerDeleteBudget(category.id)}
 					       	} />
 					    </div>
 
@@ -105,7 +105,7 @@ class CategoryList extends Component {
                         <div className="transaction-button">
                         </div>
                     </div>
-        		    {this.renderCategoryList()}
+        		    {this.renderBudgetList()}
                 </div>
                 </div>
 	      	</div>
@@ -113,4 +113,4 @@ class CategoryList extends Component {
   	};
 }
 
-export default CategoryList;
+export default BudgetList;

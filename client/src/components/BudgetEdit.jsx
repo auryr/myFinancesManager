@@ -6,7 +6,7 @@ import {
     Route,
     Link
 } from 'react-router-dom';
-class CategoryEdit extends Component {
+class BudgetEdit extends Component {
     constructor() {
         super();
         this.state = {
@@ -19,8 +19,8 @@ class CategoryEdit extends Component {
             categoryDataLoaded:false,
         }
         this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleEditCategory = this.handleEditCategory.bind(this);
-        this.renderEditCategory= this.renderEditCategory.bind(this)
+        this.handleEditBudget = this.handleEditBudget.bind(this);
+        this.renderEditBudget= this.renderEditBudget.bind(this)
     }
 
     componentDidMount() {
@@ -47,7 +47,7 @@ class CategoryEdit extends Component {
         });
     }
 
-    handleEditCategory(e, name, description, include, operation, user_id) {
+    handleEditBudget(e, name, description, include, operation, user_id) {
         e.preventDefault();
         axios.put(`/categories/${this.state.id}`, {
             name,
@@ -65,15 +65,15 @@ class CategoryEdit extends Component {
         })
     }
 
-    renderEditCategory() {
+    renderEditBudget() {
         if (this.state.categoryDataLoaded) {
             return (
                 <div className="main-container">
                     <div className="sub-container">
                         <div >
-                            <h1 className="hero-text2">Edit Category</h1>
+                            <h1 className="hero-text2">Edit Budget</h1>
                         </div>
-                        <form onSubmit={(e) => this.handleEditCategory(e,
+                        <form onSubmit={(e) => this.handleEditBudget(e,
                             this.state.name,
                             this.state.description,
                             this.state.include,
@@ -105,7 +105,7 @@ class CategoryEdit extends Component {
   render() {
     return (
       <div className="category-create">
-        {this.renderEditCategory()}
+        {this.renderEditBudget()}
         {this.state.fireRedirect
           ? <Redirect push to={`/category/id/${this.state.id}`} />
           : ''}
@@ -113,4 +113,4 @@ class CategoryEdit extends Component {
     )
   }
 }
-export default CategoryEdit;
+export default BudgetEdit;

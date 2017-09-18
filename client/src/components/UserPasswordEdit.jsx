@@ -65,30 +65,27 @@ class UserProfileEdit extends Component {
     renderUserPassword() {
         if (this.state.userDataLoaded) {
             return (
-                <div className="form">
-                    <div>
-                        <h1  className="page-tittle">Change Password</h1>
-                        <form  className="login-form" onSubmit={(e) => this.handleSubmit(
-                            e,
-                            this.state.newPassword,
-                            this.state.newPasswordConfirm,
-                            )}>
-                            <div className="input-container3">
-                                <label>New Password</label>
-                                <input className="form" type="password" name="newPassword" placeholder="" onChange={this.handleInputChange} required/>
-                            </div>
-                            <div  className="input-container3">
-                                <label>Confirm New Password</label>
-                                <input className="form" type="password" name="newPasswordConfirm" placeholder="" onChange={this.handleInputChange} required/>
-                            </div>
+                <div className="sub-container2">
+                    <h1  className="page-tittle">Change Password</h1>
+                    <form  className="login-form" onSubmit={(e) => this.handleSubmit(
+                        e,
+                        this.state.newPassword,
+                        this.state.newPasswordConfirm,
+                        )}>
+                        <div className="input-container3">
+                            <label>New Password</label>
+                            <input className="form" type="password" name="newPassword" placeholder="" onChange={this.handleInputChange} required/>
+                        </div>
+                        <div  className="input-container3">
+                            <label>Confirm New Password</label>
+                            <input className="form" type="password" name="newPasswordConfirm" placeholder="" onChange={this.handleInputChange} required/>
+                        </div>
 
-                            <div>
-                                <input type="submit" value="Enter" />
-                            </div>
+                        <div>
+                            <input type="submit" value="Enter" />
+                        </div>
 
-                        </form>
-                    </div>
-
+                    </form>
                 </div>
             )
         }
@@ -96,7 +93,7 @@ class UserProfileEdit extends Component {
 
     render(){
         return(
-            <div className="login-page">
+            <div className="main-container">
                 {this.renderUserPassword()}
                 {this.state.fireRedirect
                 ? <Redirect push to={`/user/${this.props.userData.id}`} />
