@@ -389,7 +389,6 @@ label{
 .sub-container3 {
     background-color:rgba(0, 0, 0, .4)  ;
     width: 98%;
-    heigh: 98%;
     border-radius: 10px;
     position: relative;
     margin: auto;
@@ -480,6 +479,17 @@ main {
 
 .transaction-list {
     width: 90%;
+    margin: auto;
+    height: 80vh;
+    overflow: auto;
+    background: #f5f5f5;
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+.small-list {
+    width: 70%;
     margin: auto;
     height: 80vh;
     overflow: auto;

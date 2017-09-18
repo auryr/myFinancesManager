@@ -13,8 +13,8 @@ class BudgetEdit extends Component {
             id:null,
             name: '',
             description: '',
-            include: true,
-            operation: '-',
+            initdate: null,
+            enddate: null,
             user_id: null,
             categoryDataLoaded:false,
         }
@@ -24,15 +24,15 @@ class BudgetEdit extends Component {
     }
 
     componentDidMount() {
-        axios.get(`/categories/id/${this.props.category_id}`)
+        axios.get(`/budgets/id/${this.props.category_id}`)
         .then((res) => {
             console.log(res.data.data)
             this.setState({
                 id: res.data.data.id,
                 name: res.data.data.name,
                 description: res.data.data.description,
-                include: res.data.data.include,
-                operation: res.data.data.operation,
+                initdate: res.data.data.initdate,
+                enddate: res.data.data.enddate,
                 user_id :this.props.userData.id,
                 categoryDataLoaded:true,
             })
@@ -47,13 +47,13 @@ class BudgetEdit extends Component {
         });
     }
 
-    handleEditBudget(e, name, description, include, operation, user_id) {
+    handleEditBudget(e, name, description, initdate, enddate, user_id) {
         e.preventDefault();
-        axios.put(`/categories/${this.state.id}`, {
+        axios.put(`/budgets/${this.state.id}`, {
             name,
             description,
-            include,
-            operation,
+            initdate,
+            enddate,
             user_id,
         }).then(res => {
             this.setState({
@@ -76,8 +76,8 @@ class BudgetEdit extends Component {
                         <form onSubmit={(e) => this.handleEditBudget(e,
                             this.state.name,
                             this.state.description,
-                            this.state.include,
-                            this.state.operation,
+                            this.state.initdate,
+                            this.state.enddate,
                             this.state.user_id
                             )}>
                             <div className="input-container">
@@ -88,12 +88,12 @@ class BudgetEdit extends Component {
                                 <label> Description </label>
                                 <input  className="normal-input" type="text" name="description"  value={this.state.description} onChange={this.handleInputChange} required />
                             </div>
-                            <div className="select-container">
-                                <label> Operation </label>
-                                <select className="select small"  name="operation" value={this.state.operation} onChange={this.handleInputChange} required>
-                                  <option>+</option>
-                                  <option>-</option>
-                                </select>
+                            <div className="input-container2">
+                                   <label>Init Date </label>
+                                   <input type="date" name="initdate" id="initdate" value={this.state.initdate} placeholder="" onChange={this.handleInputChange} required />
+
+                                   <label>End Date </label>
+                                   <input type="date" name="enddate" id="enddate" value={this.state.enddate} placeholder="" onChange={this.handleInputChange} required />
                             </div>
                             <input type="submit" value="Update" />
                         </form>
@@ -107,7 +107,7 @@ class BudgetEdit extends Component {
       <div className="category-create">
         {this.renderEditBudget()}
         {this.state.fireRedirect
-          ? <Redirect push to={`/category/id/${this.state.id}`} />
+          ? <Redirect push to={`/budgets/${this.state.user_id}`} />
           : ''}
       </div>
     )

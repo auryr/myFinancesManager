@@ -80,7 +80,7 @@ class CategoryList extends Component {
   	render() {
     	return (
             <div className="main-container">
-                <div  className="transaction-list" >
+                <div  className="small-list" >
                 <div>
                     <div  className="transaction-list-header">
                         <div  className="transaction-no" >

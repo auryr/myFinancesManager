@@ -34,13 +34,13 @@ class UserProfile extends Component {
 
     return (
         <div className="main-container">
-            <div className="sub-container">
+            <div className="sub-container3">
                 <div className="user-info">
                     <div className="user-pic">
                         <img alt="" src="http://www.doyouknowja.com/upload/profile-pic/default-user.jpg"/>
                     </div>
                     <div className="user-details">
-                        <h1>Hey, {this.state.fullname}.</h1>
+                        <h1>{this.state.fullname}.</h1>
                         <h2>{this.state.username}</h2>
                         <h3>{this.state.email}</h3>
                         <Link className='link-to' to={`/user/password/${this.props.user.id}`} >Edit Password </Link>
@@ -53,9 +53,20 @@ class UserProfile extends Component {
                     <br/>
 
                     <div className="links">
+                        <Link  className="link-small" to={'/budgets'}>Create A Budgets</Link>
+                    </div>
+                    <br/>
+
+                    <div className="links">
+                        <Link  className="link-small" to={`/budgets/${this.state.user_id}`}>View Budgets</Link>
+                    </div>
+                    <br/>
+
+
+                    <div className="links">
                         <Link  className="link-small" to={'/categories'}>Create A Category</Link>
                     </div>
-                        <br/>
+                    <br/>
 
                     <div className="links">
                         <Link  className="link-small" to={`/categories/${this.state.user_id}`}>View Categories</Link>

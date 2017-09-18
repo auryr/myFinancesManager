@@ -5,16 +5,14 @@ import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import  BudgetList from "./BudgetList"
 
-class BudgetCreate.jsx
-BudgetEdit.jsx
-BudgetList.jsxCreate extends Component {
+class BudgetCreate extends Component {
      constructor() {
           super();
           this.state = {
                name: '',
                description: '',
-               include: true,
-               operation: '-',
+               initdate: null,
+               enddate: null,
                user_id: null,
                newid:null,
           }
@@ -39,20 +37,20 @@ BudgetList.jsxCreate extends Component {
           this.setState({
                name: '',
                description: '',
-               include: true,
-               operation: '-',
+               initdate: null,
+               enddate: '-',
                user_id: null
           })
      }
 
-     handleCreateBudget(e, name, description, include, operation) {
+     handleCreateBudget(e, name, description, initdate, enddate) {
           e.preventDefault();
           let user_id=this.state.user_id;
-          axios.post('/categories', {
+          axios.post('/budgets', {
                name,
                description,
-               include,
-               operation,
+               initdate,
+               enddate,
                user_id,
           }).then(res => {
                this.clearComponents();
@@ -80,24 +78,27 @@ BudgetList.jsxCreate extends Component {
                          <form onSubmit={(e) => this.handleCreateBudget(e,
                          this.state.name,
                          this.state.description,
-                         this.state.include,
-                         this.state.operation
+                         this.state.initdate,
+                         this.state.enddate
                          )}>
                               <div className="input-container">
                                    <label>Name</label>
                                    <input  className="normal-input" type="text" name="name" placeholder="" value={this.state.name} onChange={this.handleInputChange} required />
                               </div>
+
                               <div className="input-container">
                                    <label>Description</label>
                                    <textarea name="description" value={this.state.description} onChange={this.handleInputChange} required />
                               </div>
-                              <div className="select-container">
-                                   <label>Budget type</label>
-                                   <select className="select small" name="operation" value={this.state.operation} onChange={this.handleInputChange} required>
-                                        <option>+</option>
-                                        <option>-</option>
-                                   </select>
-                              </div>
+
+                             <div className="input-container2">
+                                   <label>Init Date </label>
+                                   <input type="date" name="initdate" id="initdate" value={this.state.initdate} placeholder="" onChange={this.handleInputChange} required />
+
+                                   <label>End Date </label>
+                                   <input type="date" name="enddate" id="enddate" value={this.state.enddate} placeholder="" onChange={this.handleInputChange} required />
+                             </div>
+
 
                               <div>
                                    <input type="submit" value="Create" />

@@ -28,6 +28,11 @@ import CategoryCreate from "./components/CategoryCreate.jsx";
 import CategoryEdit   from "./components/CategoryEdit.jsx";
 import CategoryList   from "./components/CategoryList.jsx";
 
+// BUDGET
+import BudgetCreate from "./components/BudgetCreate.jsx";
+import BudgetEdit   from "./components/BudgetEdit.jsx";
+import BudgetList   from "./components/BudgetList.jsx";
+
 //TRANSACTION
 import TransactionCreate from "./components/TransactionCreate.jsx";
 import TransactionEdit from "./components/TransactionEdit.jsx";
@@ -148,6 +153,14 @@ class App extends Component {
                         <Route exact path="/categories/edit/:id" render={(props) => <CategoryEdit  userData={this.state.user} category_id={props.match.params.id}  />} />
 
                         <Route exact path="/categories/:id" render={(props) => <CategoryList  userData={this.state.user} />} />
+
+                        <Route exact path="/budgets"       render={(props) => <BudgetCreate  userData={this.state.user} />} />
+
+                        <Route exact path="/budgets/edit/:id" render={(props) => <BudgetEdit  userData={this.state.user} category_id={props.match.params.id}  />} />
+
+                        <Route exact path="/budgets/:id" render={(props) => <BudgetList  userData={this.state.user} />} />
+
+
 
                         <Route exact path="/transactions"       render={(props) => <TransactionCreate  userData={this.state.user} />} />
 

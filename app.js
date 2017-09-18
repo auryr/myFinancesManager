@@ -53,8 +53,8 @@ app.use("/transactions", transactionRoutes);
 // const noteRoutes= require("./routes/noteRoutes");
 // app.use("/notes", noteRoutes);
 
-// const budgetsRoutes= require("./routes/budgetRoutes");
-// app.use("/budgets",budgetsRoutes);
+const budgetsRoutes= require("./routes/budgetRoutes");
+app.use("/budgets",budgetsRoutes);
 
 
 app.get("*",(req, res)=>{
