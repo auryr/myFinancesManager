@@ -3,12 +3,13 @@ const Transaction = require("../models/transaction.js")
 //PROJECTS
 transactionController={
     create: function(req, res){
+        console.log(req.body);
         Transaction.create({
             note :req.body.note,
             trdate:req.body.trdate,
             amount:req.body.amount,
             receipt:req.body.receipt,
-            category_id:req.body.category_id,
+            category_id:req.body.cat_id,
         }).then( transaction =>{
             res.json({
                 message:"Done",
@@ -64,6 +65,7 @@ transactionController={
     },
 
     findByDate: function (req, res){
+        console.log(req.body);
         Transaction.findByDate({
             user_id:  req.body.user_id,
             initdate: req.body.initdate,

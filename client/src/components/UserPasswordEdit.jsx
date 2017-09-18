@@ -20,7 +20,7 @@ class UserProfileEdit extends Component {
 
     componentDidMount() {
         if (this.props.userData) {
-            axios.get(`/user/id/${this.props.userData.id}`)
+            axios.get(`/users/id/${this.props.userData.id}`)
                 .then(res => {
                     this.setState({
                         userData: res.data.user,
@@ -39,7 +39,7 @@ class UserProfileEdit extends Component {
         }else{
           let updatePass=true;
           let id =this.props.userData.id;
-          axios.put(`/user/${this.props.userData.id}`, {
+          axios.put(`/users/${this.props.userData.id}`, {
             id,
             password,
             updatePass,
@@ -99,7 +99,7 @@ class UserProfileEdit extends Component {
             <div className="login-page">
                 {this.renderUserPassword()}
                 {this.state.fireRedirect
-                ? <Redirect push to={`/user/id/${this.props.userData.id}`} />
+                ? <Redirect push to={`/user/${this.props.userData.id}`} />
                 : ''}
             </div>
         )

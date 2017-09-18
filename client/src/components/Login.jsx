@@ -23,11 +23,11 @@ class Login extends Component {
     render(){
         const { fireRedirect } = this.state;
         return(
-            <div className="login-page">
-                <div>
-                    <h2 className="welcome-text">Welcome!</h2>
-                </div>
-                <div className="form">
+            <div className="main-container">
+                <div className="sub-container2">
+                    <div>
+                        <h2 className="welcome-text">Welcome!</h2>
+                    </div>
                     <form className="login-form" onSubmit={(e) => this.props.handleLoginSubmit(
                         e,
                         this.state.username,
@@ -40,10 +40,11 @@ class Login extends Component {
                         <input className="form" type="Password" name="password" value={this.state.password} placeholder="Password" onChange={this.handleInputChange} />
                         </div>
                         <div>
-                        <input className="login-button" type="submit" value="Log In" />
+                            <input type="submit" value="Log In" />
                         </div>
                     </form>
                 </div>
+
             </div>
         )
     }

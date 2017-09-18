@@ -41,37 +41,63 @@ class CategoryList extends Component {
   	}
 
   	renderCategoryList() {
-    	if (this.state.categoryDataLoaded) {
-      		return this.state.categoryData.map((category,index) => {
-				return (
-    				<div>
-      					<div>
-      						{index +1}
-      					</div>
-				      	<div>
-				      		{category.name}</div>
-				      	<div>
-				      		{category.description}
-				      	</div>
+        <div  className="transaction-list" >
+            <div  className="transaction-list-header">
+                <div  className="transaction-no" >
+                    <h1 className="transaction-info" >#</h1>
+                </div>
 
-			            <div className="task-button">
-				      		<input type="submit" value="Delete"
-					       onClick={
-					       		()=>{this.handlerDeleteCategory(category.id)}
-					       	} />
-					    </div>
+                <div  className="transaction-detail" >
+                    <h1 className="transaction-info">Name</h1>
+                </div>
 
-			            <div className="task-button">
-			                <Link to={`/categories/edit/${category.id}`}>
-			                    <span className="button-span small-button">Edit</span>
-			                </Link>
-			            </div>
+                <div  className="transaction-description" >
+                    <h1 className="transaction-info" >Description</h1>
+                </div>
 
-				    </div>
-  				)
+                <div  className="transaction-detail" >
+                    <h1 className="transaction-info">Type</h1>
+                </div>
 
-      		});
-    	}
+                <div className="transaction-button">
+                </div>
+
+                <div className="transaction-button">
+                </div>
+            </div>
+
+        	if (this.state.categoryDataLoaded) {
+          		return this.state.categoryData.map((category,index) => {
+    				return (
+        				<div  className="transaction-list-detail"  key={transaction.id}>
+          					<div className="transaction-no">
+          						{index +1}
+          					</div>
+    				      	<div className="transaction-details">
+    				      		{category.name}</div>
+                            <div className="transaction-description">
+    				      		{category.description}
+    				      	</div>
+
+    			            <div className="task-button">
+    				      		<input type="submit" value="Delete"
+    					           onClick={
+    					       		  ()=>{this.handlerDeleteCategory(category.id)}
+    					       	} />
+    					    </div>
+
+    			            <div className="task-button">
+    			                <Link to={`/categories/edit/${category.id}`}>
+    			                    <span className="button-span small-button">Edit</span>
+    			                </Link>
+    			            </div>
+
+    				    </div>
+      				)
+
+          		});
+        	}
+        </div>
   	}
 
   	render() {

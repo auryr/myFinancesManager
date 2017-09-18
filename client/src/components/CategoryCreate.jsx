@@ -70,9 +70,11 @@ class CategoryCreate extends Component {
 
      render() {
           return (
-               <div className="main-container2">
-                    <div className="sub-container2">
-                          <h1 className="hero-text2">Create a Category</h1>
+               <div className="main-container">
+                    <div className="sub-container">
+                         <div >
+                              <h1 className="hero-text2">Create a Category</h1>
+                         </div>
                          <form onSubmit={(e) => this.handleCreateCategory(e,
                          this.state.name,
                          this.state.description,
@@ -87,9 +89,9 @@ class CategoryCreate extends Component {
                                    <label>Description</label>
                                    <textarea name="description" value={this.state.description} onChange={this.handleInputChange} required />
                               </div>
-                              <div className="input-container">
+                              <div className="select-container">
                                    <label>Category type</label>
-                                   <select className="select" name="operation" value={this.state.operation} onChange={this.handleInputChange} required>
+                                   <select className="select small" name="operation" value={this.state.operation} onChange={this.handleInputChange} required>
                                         <option>+</option>
                                         <option>-</option>
                                    </select>
@@ -101,7 +103,6 @@ class CategoryCreate extends Component {
 
                          </form>
                     </div>
-                    <CategoryList  userData={this.props.userData} />
                </div>
           )
      }

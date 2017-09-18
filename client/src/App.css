@@ -1,4 +1,4 @@
-/*general*/
+
 .App-intro {
     font-size: large;
 }
@@ -16,8 +16,6 @@
     word-wrap: break-word;
 
 }
-
-
 body {
     font-family: 'Avenir Next', sans-serif;
     display: flex;
@@ -31,7 +29,7 @@ label{
     text-align: right;
     font-size: 20px;
     margin: 4px;
-    color: #544CAF;
+    color: #;
 }
 
 input[type=text],input[type=password]
@@ -54,8 +52,6 @@ input[type=time],input[type=date] {
     width: 12vh;
 }
 
-
-
 input[type=text],input[type=password],select
 input[type=email],input[type=date],input[type=password],
 ,input[type=email]:focus {
@@ -68,12 +64,17 @@ select {
     margin:auto;
     margin-bottom: 2px;
     display: inline-block;
-    box-shadow: inset 0 2px 0 white;
+    box-shadow: inset 0 2px 0 #dcd0c0;
     border-radius: 3px;
     border: 1px solid #979797;
     font-size: 3vh;
     text-align: left;
     width: 50%;
+}
+
+.small{
+  width: 5%;
+  height: 5vh;
 }
 
 textarea{
@@ -109,7 +110,7 @@ label{
     text-align: right;
     font-size: 20px;
     margin: 4px;
-    color: #544CAF;
+    color: #f7b733;
 }
 
 input[type=text],input[type=password]
@@ -138,8 +139,8 @@ input[type=time],input[type=date] {
 input[type=submit],.button-span {
     display: inline-block;
     width: 8em;
-    color: white;
-    background-color: fiedl;
+    color: #dcd0c0;
+    background-color: #fc4a1a;
     padding: 10px 10px;
     margin: 8px 0;
     border: none;
@@ -151,24 +152,17 @@ input[type=submit],.button-span {
 }
 
 input[type=submit]:hover ,.button-span:hover {
-    background-color: #544CAF;
-    color:white;
+    background-color: #f7b733;
+    color:#dcd0c0;
     box-shadow: inset 0 0 0 0px #211F1F;
 }
 
-/*input[type=text],input[type=password],select
-input[type=email],input[type=date],input[type=password],
-,input[type=email]:focus {
-    border: 2px solid #8B1BD2;
-    transition: .7s;
-  }
-*/
 select {
     background: linear-gradient(#F2F2F2, #D4D4D4);
     margin:auto;
     margin-bottom: 2px;
     display: inline-block;
-    box-shadow: inset 0 2px 0 white;
+    box-shadow: inset 0 2px 0 #dcd0c0;
     border-radius: 3px;
     border: 1px solid #979797;
     font-size: 3vh;
@@ -201,7 +195,7 @@ input{
 }
 input:focus{
     background-color: #F9E79F  ;
-    /*border: 0.25px solid #00B686 ;*/
+    /*border: 0.25px solid #FC4A1A ;*/
 
 }
 
@@ -218,14 +212,20 @@ label{
 
 
 .link-to{
-    color:  #6D1CDF;
+    color:  #f7b733;
     font-size: 3vh;
     width: 100%;
     font-weight: bolder;
 }
 
+.link-small{
+    color:  #f7b733;
+    font-size: 2.5vh;
+    width: 100%;
+}
+
 .link-to:hover{
-    color: #00B686;
+    color: #FC4A1A;
 }
 
 .main-header{
@@ -248,8 +248,8 @@ label{
 
 
 .page-tittle {
-  background: #00B686;
-  color: white;
+  background: #FC4A1A;
+  color: #dcd0c0;
   padding: 1em;
   font-size: 3.5vh;
   font-weight: bold;
@@ -272,7 +272,7 @@ label{
     width:25%;
     margin: 4px;
     font-size: 2.5vh;
-    color:  #544CAF;
+    color:  #f7b733;
   }
 
   .input-container > .normal-input,textarea {
@@ -301,7 +301,7 @@ label{
     width:100%;
     margin: 4px;
     font-size: 2.5vh;
-    color:  #544CAF;
+    color:  #f7b733;
   }
 
 /*****************inputs container ***********************************************************/
@@ -320,7 +320,7 @@ label{
     width:15%;
     margin: 4px;
     font-size: 2.5vh;
-    color:  #544CAF;
+    color:  #f7b733;
   }
 
 
@@ -361,15 +361,14 @@ label{
 /**************** containers*****************************************************************/
 
 .main-container {
-    height: 95vh;
-    border-radius: 10px;
+    height: 90vh;
     display: flex;
     background-image: url('https://static.pexels.com/photos/2116/money-gold-coins-finance.jpg');
     background-size: cover;
-    background-color: rgba(34, 24, 24, 0.60);
     background-blend-mode: overlay;
     width: 100%;
 }
+
 .sub-container {
     background-color:rgba(0, 0, 0, .6)  ;
     width: 60%;
@@ -380,6 +379,17 @@ label{
     box-shadow: 0 0 10px #040000;
 }
 
+
+.sub-container3 {
+    background-color:rgba(0, 0, 0, .4)  ;
+    width: 98%;
+    heigh: 98%;
+    border-radius: 10px;
+    position: relative;
+    margin: auto;
+    padding: 10px;
+    box-shadow: 0 0 10px #040000;
+}
 
 .main-container2  {
     height: 95vh;
@@ -395,16 +405,12 @@ label{
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
     0 6px 6px rgba(0, 0, 0, 0.23);
     margin: auto;
-    width: 50%;
+    width: 30%;
     border-radius: 10px;
 }
 
 /*********************************************************************************/
   /* LOGIN PAGE */
-  .login-page {
-    padding-top: 20vh;
-    height: 95vh;
-  }
 
   .login-form {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25),
@@ -435,12 +441,12 @@ label{
 
 .nav-item  {
     margin: auto;
-    color: white
+    color: #dcd0c0
 }
 
 .nav-item a:hover {
-    /* background: white; */
-    color: #00B686;
+    /* background: #dcd0c0; */
+    color: #FC4A1A;
     font-size: 1.1em;
     transition: .3s;
 }
@@ -459,79 +465,75 @@ main {
 }
 
 
-/******************task-collaboratos list********************************/
 
-
-.main-task-list{
+.main-transaction-list{
   width: 100vh;
-  background-color: red;
+
+  background-color: #dcd0c0;
 }
-.task-list , .collaborator-list{
-    width: 100%;
+
+.transaction-list {
+    width: 90%;
     margin: auto;
+    height: 80vh;
+    overflow: auto;
     background: #f5f5f5;
-    box-shadow: 0 0 20px #000;
     color: black;
     display: flex;
     flex-direction: column;
 }
 
-.task-list-header,
-.collaborator-list-header {
+.transaction-list-header{
     width: 98%;
     height: 40px;
     margin:  10px;
     display: flex;
     border-radius: 10px 10px 0  0 ;
-    background-color:#544CAF;
+    background-color:#f7b733;
 
 }
 
-.task-list-header > div ,
-.collaborator-list-header > div {
-    border-top: 8px solid #00B686;
+.transaction-list-header > div {
+    border-top: 8px solid #FC4A1A;
 }
 
 
 
-.task-list-header,
-.collaborator-list-header {
+.transaction-list-header{
     width: 98%;
     height: 40px;
     margin:  10px;
     display: flex;
     border-radius: 10px 10px 0  0 ;
-    background-color:#544CAF;
+    background-color:balck;
+    height: 8vh;
+    overflow: hidden;
 
 }
 
-.task-list-header > div ,
-.collaborator-list-header > div {
-    border-top: 8px solid #00B686;
+.transaction-list-header > div  {
+    border-top: 8px solid #FC4A1A;
 }
 
-.task-list-header > div >.task-info,
-.collaborator-list-header > div >.collaborator-info {
-    color: white;
+.transaction-list-header > div >.transaction-info {
+    color: black;
     font-weight: bold;
     margin:  auto 0;
 }
 
-.task-list-detail,
-.collaborator-list-detail {
+.transaction-list-detail{
     width: 98%;
-    overflow: auto;
+    height: 8vh;
+    overflow: hidden;
     display: flex;
     margin:  0;
     padding: 0;
     display: flex;
     margin:  0 10px;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25),
-    0 10px 10px rgba(0,0,0,0.22);
+    box-shadow: 3px 3px 2px rgba(0,0,0,0.25)
 }
 
-.task-info,
-.collaborator-info{
+.transaction-info{
     margin-left:5px;
     color: black;
     font-weight: normal;
@@ -540,9 +542,19 @@ main {
     word-wrap: break-word;
     margin: auto 5px;
 }
+/*general*/
 
-.task-detail,.task-no,.task-name, .task-description, .task-date,
-.task-detail,.task-button, .collaborator-button, .collaborator-name
+.red{
+    color:red;
+}
+
+.blue{
+    color:blue;
+}
+
+
+.transaction-detail,.transaction-no,.transaction-name, .transaction-description, .transaction-date,
+.transaction-detail,.transaction-button
 {
     word-wrap: break-word;
     /*overflow: auto;*/
@@ -551,45 +563,39 @@ main {
     word-wrap: break-word;
 
 }
-.task-no{
+.transaction-no{
     width: 3%;
 }
 
-.task-name{
+.transaction-name{
     width: 15%;
 }
 
-.task-description{
+.transaction-description{
     width: 20%;
 }
 
-.task-date{
+.transaction-date{
     width: 9%;
 }
 
-.task-detail{
+.transaction-detail{
     width: 10%;
 }
 
-.task-button{
+.transaction-button{
     width: 7%;
 }
 
-.task-button > input, .task-button > a > span {
+.transaction-button > input, .transaction-button > a > span {
     width:99%;
     height:80%;
     font-size: 2.5vh;
     font-weight: normal;
 }
 
-.collaborator-name{
-    width: 80%;
-}
-.collaborator-button{
-    width: 20%;
-}
 
- .task-no-edit{
+ .transaction-no-edit{
     text-align: center;
     display: inline-block;
     border: 1px solid #ccc;
@@ -606,82 +612,6 @@ main {
     vertical-align: center;
 
  }
-/*********************project***************************************************************/
-
- .main-project-info{
-    color: #6D1CDF;
-    font-weight: bolder;
- }
-
- .project-info-h{
-    color: #6D1CDF;
-    font-weight: bolder;
- }
-
-/****************************************************************************************/
-.messageform {
-  display: flex;
-  justify-content: center;
-  padding-top: 0px;
-}
-
-
-.project {
-  height: 90vh;
-}
-
-.project h3 {
-  color: white;
-  padding-top: .5em;
-  font-size:40px;
-  font-weight: 800;
-  background: #00B686;
-  padding: 5px;
-}
-
-.project h2 {
-  color: white;
-  font-weight: 900;
-  border-top: 1px solid grey;
-  background: white;
-}
-
-.project p {
-  color: black;
-  padding: 5px;
-  font-size: 20px;
-  background: white;
-}
-
-.project-view-links {
-  background: #6D1CDF;
-  border-top: 2vh solid #00B686;
-  box-shadow: 0 0 15px black;
-  width: 100%;
-}
-
-.projectView {
-  width: 46%;
-  box-shadow: 0 0 25px #000;
-  color: white;
-  border-radius: 0.5%;
-  margin:5vh  auto ;
-
-}
-
-.editProject {
-    color: white;
-    font-size: 3vh;
-    font-weight: bolder;
-}
-.editProject:hover{
-    color: #00B686;
-}
-
-.viewTask {
-  color: black;
-}
-
 
 .List {
   width: 80%;
@@ -691,19 +621,9 @@ main {
   border-top: 1px solid gray;
 }
 
-.tasklist-view {
-  color: white;
-  background: #6D1CDF;
-  display: flex;
-  border-top: 8px solid #00B686;
-  justify-content: space-around;
-  align-items: center;
-  height: 40px;
-}
-
 
 a {
-  color: white;
+  color: #dcd0c0;
   text-decoration: none; /* no underline */
 }
 
@@ -730,12 +650,7 @@ a:active {
 .button {
   border: 2px solid black
 }
-.logo {
-  color: white;
-  font-size: 24px;
-  font-weight: 400;
-  /* padding: 0px 20px 0px 20px; */
-}
+
 
 .hero-container {
   display: flex-end;
@@ -744,11 +659,12 @@ a:active {
 }
 
 .hero-text2 {
-  background: #00B686;
-  color: white;
+  border-radius: 10px;
+  background: #FC4A1A;
+  color: white ;/*#dcd0c0;*/
   padding: 1em;
   font-size: 30px;
-  font-weight: 800;
+  font-weight: bold;
 
 }
 
@@ -782,22 +698,22 @@ a:active {
 
 .form > form > div:nth-child(3) > input {
   border-radius: 100px;
-  color: white;
-  background-color: #00B686;
+  color: #dcd0c0;
+  background-color: #FC4A1A;
 }
 
 .hero-button {
   height: 100px;
   /* width: 200px; */
   border-radius: 100px;
-  color: white;
-  background-color: #00B686;
+  color: #dcd0c0;
+  background-color: #FC4A1A;
   padding: 15px;
 }
 
 .welcome-text {
   font-size: 60px;
-  color: #6D1CDF;
+  color: #f7b733;
   padding-bottom: .5em;
 }
 
@@ -810,21 +726,23 @@ a:active {
   margin: 0 auto;
   padding: 20px 0px 20px 0px;
   display: flex;
-  background-color: #6D1CDF;
+  background-color: black;
   width: 100%;
-  color: white;
+  color: #dcd0c0;
   z-index: 1000;
 }
+
 .home-page {
   padding-top: 10vh;
   display: inline-block;
-  height: 100vh;
+  height: 92vh;
   background-image: url('https://static.pexels.com/photos/9660/business-money-pink-coins.jpg');
-  background-size: cover;
-  background-color: rgba(34, 24, 24, 0.60);
+  background-size: 100% 100%;
   background-blend-mode: overlay;
   width: 100%;
 }
+
+
 
 
 

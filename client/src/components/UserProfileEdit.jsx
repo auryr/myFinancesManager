@@ -5,56 +5,47 @@ import '../App.css';
 
 class UserProfileEdit extends Component {
     constructor() {
-      super();
-      this.state = {
-        username: '',
-        firstname: '',
-        lastname: '',
-        password: '',
-        email: '',
-        img_url: '',
-        proj_link: '',
-        user_type: '',
-        userData: null,
-        userDataLoaded: false,
-      }
-      this.handleInputChange = this.handleInputChange.bind(this);
-      this.handleSubmit= this.handleSubmit.bind(this);
-      this.renderUserProfileEdit = this.renderUserProfileEdit.bind(this);
-      this.renderUserType= this.renderUserType.bind(this);
+        super();
+        this.state = {
+            username: '',
+            firstname: '',
+            lastname: '',
+            email: '',
+            photo: '',
+            userData: null,
+            userDataLoaded: false,
+        }
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleSubmit= this.handleSubmit.bind(this);
+        this.renderUserProfileEdit = this.renderUserProfileEdit.bind(this);
     }
 
     componentDidMount() {
-      if (this.props.userData) {
-        axios.get(`/user/id/${this.props.userData.id}`)
-          .then(res => {
-            this.setState({
-              userData: res.data.user,
-              username: res.data.user.username,
-              firstname: res.data.user.firstname,
-              lastname: res.data.user.lastname,
-              email: res.data.user.email,
-              img_url:res.data.user.img_url,
-              proj_link: res.data.user.proj_link,
-              user_type: res.data.user.user_type,
-              userDataLoaded: true,
+        if (this.props.userData) {
+            axios.get(`/users/id/${this.props.userData.id}`)
+            .then(res => {
+                this.setState({
+                    userData: res.data.user,
+                    username: res.data.user.username,
+                    firstname: res.data.user.firstname,
+                    lastname: res.data.user.lastname,
+                    email: res.data.user.email,
+                    photo:res.data.user.photo,
+                    userDataLoaded: true,
+                })
             })
-          }
-        )
-      }
+        }
     }
 
 
-    handleSubmit(e, username, firstname, lastname, password, email, img_url, proj_link,user_type) {
+    handleSubmit(e, username, firstname, lastname, email, photo) {
         e.preventDefault();
-        axios.put(`/user/${this.props.userData.id}`, {
-          username,
-          firstname,
-          lastname,
-          email,
-          user_type,
-          img_url,
-          proj_link,
+        axios.put(`/users/${this.props.userData.id}`, {
+            username,
+            firstname,
+            lastname,
+            email,
+            photo
         }).then(res => {
             this.setState({
               auth: res.data.auth,
@@ -77,24 +68,6 @@ class UserProfileEdit extends Component {
         })
     }
 
-    renderUserType(){
-        if (this.state.userDataLoaded){
-            if  (this.props.userData.user_type=="Manager"){
-                return(
-                    <div className="dropdown-container">
-                        <label>User-Type</label>
-                        <div>
-                            <select  name="user_type" value ={this.state.user_type} onChange={this.handleInputChange}>
-                                <option value="Manager"      name="user_type">     Manager</option>
-                                <option value="Collaborator" name="user_type">Collaborator</option>
-                                <option value="Other"        name="user_type">       Other</option>
-                            </select>
-                        </div>
-                    </div>
-                )
-            }
-        }
-    }
 
     renderUserProfileEdit() {
       if (this.state.userDataLoaded) {
@@ -110,11 +83,8 @@ class UserProfileEdit extends Component {
                     this.state.username,
                     this.state.firstname,
                     this.state.lastname,
-                    this.state.password,
                     this.state.email,
-                    this.state.img_url,
-                    this.state.proj_link,
-                    this.state.user_type
+                    this.state.photo
                     )}>
                     <div className="input-container">
                         <label>Username</label>
@@ -137,19 +107,14 @@ class UserProfileEdit extends Component {
                     </div>
 
                     <div className="input-container">
-                        <label>Image URL</label>
-                        <input className="normal-input"  type="text" name="img_url" value={this.state.img_url} placeholder="" onChange={this.handleInputChange} />
+                        <label>Photo</label>
+                        <input className="normal-input"  type="text" name="photo" value={this.state.photo} placeholder="" onChange={this.handleInputChange} />
                     </div>
 
-                    <div className="input-container">
-                        <label>Link to Project</label>
-                        <input className="normal-input" type="text" name="proj_link" value={this.state.proj_link} placeholder="" onChange={this.handleInputChange} />
-                    </div>
-                    {this.renderUserType()}
                     <div  className="button-container">
                         <input className="form" type="submit" value="Enter" />
 
-                        <Link to={`/user/id/${this.props.userData.id}`} >
+                        <Link to={`/user/${this.props.userData.id}`} >
                             <input className="form" type="submit" value="Cancel" />
                         </Link>
                     </div>
@@ -166,7 +131,7 @@ class UserProfileEdit extends Component {
             <div className="register">
                 {this.renderUserProfileEdit()}
                 {this.state.fireRedirect
-                ? <Redirect push to={`/user/id/${this.props.userData.id}`} />
+                ? <Redirect push to={`/user`} />
                 : ''}
             </div>
         )

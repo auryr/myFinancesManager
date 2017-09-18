@@ -27,10 +27,10 @@ class Header extends Component {
       <header className="header">
             <div className="nav2">
               <ul className="nav-list">
-                <li className="nav-item "><Link to={'/login'}>{this.state.menuDescription}</Link></li>
-                <li className="nav-item" ><Link to={'/'}  > Log out</Link></li>
-                <li className="nav-item" ><Link to={'/categories'}  > Categories</Link></li>
-                <li className="nav-item" ><Link to={'/transactions'}  > Transactions</Link></li>
+                <li><Link to={'/login'}>{this.state.menuDescription} &nbsp;</Link></li>
+                {!this.props.userData ? <li> <Link to={'/user'}>Register &nbsp;</Link></li> : ""}
+
+                {this.props.userData ? <li><Link to={'/'}> Logout &nbsp;</Link></li> :""}
               </ul>
             </div>
       </header>

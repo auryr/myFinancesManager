@@ -88,9 +88,9 @@ class CategoryEdit extends Component {
                                 <label> Description </label>
                                 <input  className="normal-input" type="text" name="description"  value={this.state.description} onChange={this.handleInputChange} required />
                             </div>
-                            <div className="input-container">
+                            <div className="select-container">
                                 <label> Operation </label>
-                                <select name="operation" value={this.state.operation} onChange={this.handleInputChange} required>
+                                <select className="select small"  name="operation" value={this.state.operation} onChange={this.handleInputChange} required>
                                   <option>+</option>
                                   <option>-</option>
                                 </select>

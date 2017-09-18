@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class Register extends Component {
+class UserCreate extends Component {
     constructor() {
         super();
         this.state = {
@@ -40,8 +40,11 @@ class Register extends Component {
 
     render(){
         return(
-            <div className="main-container2">
-                <div className="sub-container2">
+              <div className="main-container">
+                <div className="sub-container">
+                    <div>
+                        <h2 className="hero-text2">Create account</h2>
+                    </div>
                     <form onSubmit={(e)=>this.props.handleRegisterSubmit(
                     e,
                     this.state.username,
@@ -52,9 +55,6 @@ class Register extends Component {
                     this.state.photo,
                     this.state.auth_token
                     )}>
-                        <div>
-                            <h2 className="hero-text2">Create account</h2>
-                        </div>
 
                         <div className="input-container">
                             <label>Username</label>
@@ -100,4 +100,4 @@ class Register extends Component {
     }
 }
 
-export default Register;
+export default UserCreate;

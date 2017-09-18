@@ -2,6 +2,7 @@ const db = require('../db/config');
 const Transaction = {
 
     create : function(transaction){
+        console.log(transaction);
         return db.one(`INSERT INTO transaction(note, trdate, amount , receipt , category_id)
                 VALUES( $1, $2, $3, $4, $5) RETURNING *`,
                 [transaction.note, transaction.trdate, transaction.amount, transaction.receipt,transaction.category_id])
@@ -22,8 +23,7 @@ const Transaction = {
     },
 
     findByDate : function(filter){
-      console.log(filter);
-        return db.query("SELECT t.*,c.name,c.operation FROM transaction t inner join category c on t.category_id = c.id  WHERE user_id=$1  and trdate BETWEEN  $2 and $3 ",[ filter.user_id,
+        return db.query("SELECT t.*,c.name,c.operation FROM transaction t inner join category c on t.category_id = c.id  WHERE user_id=$1  and to_date(trdate, 'yyyy-mm-dd') >=   to_date($2,'yyyy-mm-dd') and  to_date(trdate, 'yyyy-mm-dd') <= to_date($3, 'yyyy-mm-dd')  order by  to_date(trdate, 'yyyy-mm-dd') ",[ filter.user_id,
           filter.initdate,filter.enddate]);
     },
 

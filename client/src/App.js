@@ -17,7 +17,7 @@ import Home   from "./components/Home.jsx";
 
 // USERS
 import Login    from "./components/Login.jsx";
-import Register from "./components/Register.jsx";
+import UserCreate from "./components/UserCreate.jsx";
 
 import UserProfile from "./components/UserProfile.jsx";
 import UserProfileEdit from "./components/UserProfileEdit.jsx";
@@ -25,11 +25,13 @@ import UserPasswordEdit from "./components/UserPasswordEdit.jsx";
 
 // CATEGORIES
 import CategoryCreate from "./components/CategoryCreate.jsx";
-import CategoryEdit from "./components/CategoryEdit.jsx";
-import CategoryList from "./components/CategoryList.jsx";
+import CategoryEdit   from "./components/CategoryEdit.jsx";
+import CategoryList   from "./components/CategoryList.jsx";
 
 //TRANSACTION
 import TransactionCreate from "./components/TransactionCreate.jsx";
+import TransactionEdit from "./components/TransactionEdit.jsx";
+import TransactionList from "./components/TransactionList.jsx";
 
 
 class App extends Component {
@@ -107,7 +109,7 @@ class App extends Component {
 
                         <Route exact path="/login" render={() => {
                           if(this.state.loggedIn){
-                            return <Redirect to={`/categories/${this.state.user.id}`} Component={() =>
+                            return <Redirect to={`/user/${this.state.user.id}`} Component={() =>
                             ( <UserProfile user={this.state.user} /> )
                               } />
                             }
@@ -115,30 +117,27 @@ class App extends Component {
                             return <Login handleLoginSubmit={this.handleLoginSubmit} />
                           }} />
 
-                        <Route exact path="/register" render={() => {
+                        <Route exact path="/user" render={() => {
                             if(this.state.loggedIn){
-                                return <Redirect to={`user/id/:${this.state.user.id}`} Component={() =>
+                                return <Redirect to={`user/${this.state.user.id}`} Component={() =>
                                 ( <UserProfile user={this.state.user} /> )
                                   } />
                                 }
                             else
-                                return <Register handleRegisterSubmit={this.handleRegisterSubmit}
-                                    username={this.props.username}
-                                    firstname={this.firstname}
-                                    lastname={this.lastname}
-                                    password={this.password}
-                                    email={this.email}
-                                    user_type={this.user_type} />
+                                return <UserCreate handleRegisterSubmit={this.handleRegisterSubmit}
+                                   />
                             }} />
 
-                        <Route exact path="/user/id/:id" render={() => {
-                           if(!this.state.loggedIn)
-                              return <Login/>
+                        <Route exact path="/user/:id" render={() => {
+                           if(!this.state.loggedIn){
+                                return <Redirect to={`/login`} Component={() =>
+                                ( <UserProfile user={this.state.user} /> )
+                                  } />
+                                }
                             else
                               return <UserProfile  loggedIn={this.state.auth} user={this.state.user}/>
                            }}/>
 
-                        <Route exact path="/user" render={() => <UserProfile user={this.user} />} />
 
                         <Route exact path="/user/edit/:id" render={(props) => <UserProfileEdit  userData={this.state.user} />} />
 
@@ -151,6 +150,10 @@ class App extends Component {
                         <Route exact path="/categories/:id" render={(props) => <CategoryList  userData={this.state.user} />} />
 
                         <Route exact path="/transactions"       render={(props) => <TransactionCreate  userData={this.state.user} />} />
+
+                        <Route exact path="/transactions/edit/:id" render={(props) => <TransactionEdit  userData={this.state.user} transaction_id={props.match.params.id}  />} />
+
+                        <Route exact path="/transactions/:id" render={(props) => <TransactionList  userData={this.state.user}   />} />
 
                     </main>
                 </div>

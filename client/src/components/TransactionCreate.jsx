@@ -15,16 +15,16 @@ class TransactionCreate extends Component {
             trdate: '',
             amount:0,
             receipt: '',
-            category_id: null,
+            cat_id: null,
             categoryData:null,
             categoryDataLoaded:false,
             transactionData: null,
             transactionDataLoaded: false,
         },
 
-        this.renderTransactionList =this.renderTransactionList.bind(this);
+        this.renderTransactionList    = this.renderTransactionList.bind(this);
         this.handlerDeleteTransaction = this.handlerDeleteTransaction.bind(this);
-        this.handleTransactionSubmit = this.handleTransactionSubmit.bind(this);
+        this.handleTransactionSubmit  = this.handleTransactionSubmit.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.clearComponents= this.clearComponents.bind(this);
         this.handlerLoadCategory = this.handlerLoadCategory.bind(this);
@@ -32,7 +32,7 @@ class TransactionCreate extends Component {
 
     componentDidMount() {
         this.setState({
-              user_id:this.props.userData.id,
+            user_id:this.props.userData.id,
         })
         this.handlerReloadList();
         this.handlerLoadCategory();
@@ -60,7 +60,7 @@ class TransactionCreate extends Component {
                 this.setState({
                     categoryData: res.data.data,
                     categoryDataLoaded: true,
-                    category_id:res.data.data[0].id
+                    cat_id:res.data.data[0].id
                 })
             }
         }).catch(err=>{
@@ -68,14 +68,15 @@ class TransactionCreate extends Component {
         })
     }
 
-    handleTransactionSubmit(e, note, trdate, amount, receipt, category_id) {
+    handleTransactionSubmit(e, note, trdate, amount, receipt, cat_id) {
         e.preventDefault();
+        console.log(note);
         axios.post('/transactions', {
             note,
             trdate,
             amount,
             receipt,
-            category_id,
+            cat_id,
         }).then(res => {
             this.clearComponents();
             this.setState({
@@ -116,7 +117,7 @@ class TransactionCreate extends Component {
             console.log(err);
         })
     }
-  //transaction list
+
     renderTransactionList() {
     return (
         <div className="transaction-list" >
@@ -175,7 +176,7 @@ class TransactionCreate extends Component {
                         <h1 className="transaction-info">{transaction.name}</h1>
                     </div>
                     <div className="transaction-button">
-                        <Link className='link-to' to={`/TransactionEdit/${transaction.id}`}>
+                        <Link className='link-to' to={`/transactions/edit/${transaction.id}`}>
                             <span className="button-span small-button"> Edit   </span>
                         </Link>
                     </div>
@@ -195,7 +196,7 @@ class TransactionCreate extends Component {
       <div className="main-container">
         <div className="sub-container">
           <div >
-            <h1 className="hero-text2">Add a transaction to project</h1>
+            <h1 className="hero-text2">Add a transaction</h1>
           </div>
           <form onSubmit={(e) => this.handleTransactionSubmit(
             e,
@@ -203,7 +204,7 @@ class TransactionCreate extends Component {
             this.state.trdate,
             this.state.amount,
             this.state.receipt,
-            this.state.category_id
+            this.state.cat_id
           )}>
             <div>
               <div  className="dropdown-container">
@@ -255,7 +256,6 @@ class TransactionCreate extends Component {
         return(
             <div>
                 {this.renderSubmitform()}
-                {this.renderTransactionList()}
             </div>
         )
     }
