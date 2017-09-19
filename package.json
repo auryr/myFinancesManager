@@ -9,6 +9,11 @@
     "dev": "nodemon app.js",
     "debugger": "DEBUG=*:* nodemon app.js"
   },
+
+  "engines": {
+    "node": "8.1.2"
+  },
+
   "author": "Aury Rodriguez",
   "license": "ISC",
   "dependencies": {
