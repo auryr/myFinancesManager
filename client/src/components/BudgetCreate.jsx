@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Redirect } from 'react-router-dom';
+import {Link, Redirect } from 'react-router-dom';
 
 import axios from 'axios';
 import  BudgetList from "./BudgetList"
@@ -100,10 +100,12 @@ class BudgetCreate extends Component {
                              </div>
 
 
-                              <div>
+                             <div  className="button-container">
                                    <input type="submit" value="Create" />
+                                   <Link to={`/user/${this.props.userData.id}`} >
+                                        <input className="form" type="submit" value="Cancel" />
+                                   </Link>
                               </div>
-
                          </form>
                     </div>
                </div>

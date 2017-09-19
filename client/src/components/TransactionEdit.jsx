@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+import {Link, Redirect } from 'react-router-dom';
 
 class TransactionEdit extends Component {
     constructor() {
@@ -140,8 +140,11 @@ class TransactionEdit extends Component {
                                 <input className="normal-input"  type="text" name="receipt" id="receipt" value={this.state.receipt} placeholder="" onChange={this.handleInputChange}  required/>
                             </div>
 
-                            <div>
-                                <input className="form" type="submit" value="Enter" required/>
+                            <div  className="button-container">
+                                <input type="submit" value="Update" />
+                                <Link to={`/user/${this.props.userData.id}`} >
+                                    <input className="form" type="submit" value="Cancel" />
+                                </Link>
                             </div>
                         </form>
                     </div>

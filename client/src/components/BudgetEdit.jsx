@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+import {  Redirect } from 'react-router-dom';
 import {
     BrowserRouter as Router,
     Route,
@@ -95,7 +95,13 @@ class BudgetEdit extends Component {
                                    <label>End Date </label>
                                    <input type="date" name="enddate" id="enddate" value={this.state.enddate} placeholder="" onChange={this.handleInputChange} required />
                             </div>
-                            <input type="submit" value="Update" />
+                            <div  className="button-container">
+                                <input type="submit" value="Update" />
+                                <Link to={`/user/${this.props.userData.id}`} >
+                                    <input className="form" type="submit" value="Cancel" />
+                                </Link>
+                            </div>
+
                         </form>
                     </div>
                 </div>

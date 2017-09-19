@@ -10,5 +10,6 @@ transactionRoutes.put('/:id', transactionController.update);
 transactionRoutes.get('/:userid', transactionController.findAll);
 transactionRoutes.delete('/:id', transactionController.delete);
 transactionRoutes.get('/id/:id', transactionController.findById);
+transactionRoutes.post('/budget/:userid', transactionController.findByBudget);
 
 module.exports = transactionRoutes;

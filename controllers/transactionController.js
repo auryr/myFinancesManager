@@ -92,6 +92,21 @@ transactionController={
         })
     },
 
+
+    findByBudget: function (req, res){
+        Transaction.findByBudget(req.body.user_id)
+        .then(transaction => {
+            console.log(transaction);
+            res.json({
+                message: 'Done',
+                data: transaction,
+            });
+        }).catch(err =>{
+            res.status(500).json(err);
+        })
+    },
+
+
 }
 
 

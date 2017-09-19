@@ -58,25 +58,25 @@ class BudgetList extends Component {
                             {budget.description}
                         </div>
 
-                        <div   className="transaction-date" >
+                        <div   className="transaction-name" >
                             {budget.initdate}
                         </div>
 
-                        <div   className="transaction-date" >
+                        <div   className="transaction-name" >
                             {budget.enddate}
                         </div>
 
 			            <div className="transaction-button">
-				      		<input type="submit" value="Delete"
-					       onClick={
-					       		()=>{this.handlerDeleteBudget(budget.id)}
-					       	} />
-					    </div>
+				      		<input type="submit" id="delete-button"  value="✕"
+          					       onClick={
+          					       		()=>{this.handlerDeleteBudget(budget.id)}
+          					       	} />
+          				</div>
 
 			            <div className="transaction-button">
-			                <Link to={`/budgets/edit/${budget.id}`}>
-			                    <span className="button-span small-button">Edit</span>
-			                </Link>
+    			            <Link to={`/budgets/edit/${budget.id}`}>
+                                <input type="submit" id="edit-button" value="✎" />
+    			            </Link>
 			            </div>
 
 				    </div>
@@ -90,7 +90,7 @@ class BudgetList extends Component {
   	render() {
     	return (
             <div className="main-container">
-                <div  className="small-list" >
+                <div  className="transaction-list small-list" >
                 <div>
                     <div  className="transaction-list-header">
                         <div  className="transaction-no" >
@@ -105,19 +105,20 @@ class BudgetList extends Component {
                             <h1 className="transaction-info" >Description</h1>
                         </div>
 
-                        <div  className="transaction-date" >
+                        <div  className="transaction-name" >
                             <h1 className="transaction-info">Initial date</h1>
                         </div>
 
-                        <div  className="transaction-date" >
+                        <div  className="transaction-name" >
                             <h1 className="transaction-info">End date</h1>
                         </div>
 
                         <div className="transaction-button">
+                            <Link className='link-to' to={`/user/${this.props.userData.id}`}>
+                                <input type="submit" id="cancel-button" value="Back" / >
+                            </Link>
                         </div>
 
-                        <div className="transaction-button">
-                        </div>
                     </div>
         		    {this.renderBudgetList()}
                 </div>

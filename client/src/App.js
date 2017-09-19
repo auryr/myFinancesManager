@@ -146,19 +146,22 @@ class App extends Component {
 
                         <Route exact path="/user/edit/:id" render={(props) => <UserProfileEdit  userData={this.state.user} />} />
 
+
                         <Route exact path="/user/password/:id" render={(props) => <UserPasswordEdit  userData={this.state.user} />} />
 
                         <Route exact path="/categories"       render={(props) => <CategoryCreate  userData={this.state.user} />} />
 
                         <Route exact path="/categories/edit/:id" render={(props) => <CategoryEdit  userData={this.state.user} category_id={props.match.params.id}  />} />
 
-                        <Route exact path="/categories/:id" render={(props) => <CategoryList  userData={this.state.user} />} />
+                        <Route exact path="/categories/list" render={(props) => <CategoryList  userData={this.state.user} />} />
+
+
 
                         <Route exact path="/budgets"       render={(props) => <BudgetCreate  userData={this.state.user} />} />
 
                         <Route exact path="/budgets/edit/:id" render={(props) => <BudgetEdit  userData={this.state.user} category_id={props.match.params.id}  />} />
 
-                        <Route exact path="/budgets/:id" render={(props) => <BudgetList  userData={this.state.user} />} />
+                        <Route exact path="/budgets/list" render={(props) => <BudgetList  userData={this.state.user} />} />
 
 
 
@@ -166,7 +169,7 @@ class App extends Component {
 
                         <Route exact path="/transactions/edit/:id" render={(props) => <TransactionEdit  userData={this.state.user} transaction_id={props.match.params.id}  />} />
 
-                        <Route exact path="/transactions/:id" render={(props) => <TransactionList  userData={this.state.user}   />} />
+                        <Route exact path="/transactions/list" render={(props) => <TransactionList  userData={this.state.user}   />} />
 
                     </main>
                 </div>

@@ -242,8 +242,11 @@ class TransactionCreate extends Component {
               </div>
 
 
-              <div>
-                  <input type="submit" value="Submit" />
+              <div  className="button-container">
+                <input type="submit" value="Create" />
+                <Link to={`/user/${this.props.userData.id}`} >
+                    <input className="form" type="submit" value="Cancel" />
+                </Link>
               </div>
             </div>
           </form>

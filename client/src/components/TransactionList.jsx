@@ -55,7 +55,7 @@ class TransactionList extends Component {
 
 
     handlerLoadCategory(){
-        axios.get(`/categories/${3}`)
+        axios.get(`/categories/${this.props.userData.id}`)
         .then(res=>{
             if(res.data.data.length>0){
                 this.setState({
@@ -72,8 +72,8 @@ class TransactionList extends Component {
 
     handlerReloadList(e) {
         (e) ? e.preventDefault() :"";
-        axios.post(`/transactions/${3}`,{
-            user_id: 3,
+        axios.post(`/transactions/${this.props.userData.id}`,{
+            user_id: this.props.userData.id,
             initdate:  this.state.initDate,
             enddate:  this.state.endDate
         })
@@ -119,8 +119,13 @@ class TransactionList extends Component {
                             <label >to Date </label>
                             <input type="date" name="endDate" id="endDate"  value={this.state.endDate}  onChange={this.handleInputChange}  placeholder=""  required />
 
-                            <div>
+                            <div className="transaction-button">
                                 <input className="small-button" type="submit" value="Find"  />
+                            </div>
+                            <div className="transaction-button">
+                                <Link className='link-to' to={`/user/${this.props.userData.id}`}>
+                                    <span className="button-span small-button">Back</span>
+                                </Link>
                             </div>
                         </div>
                     </form>
@@ -194,11 +199,11 @@ class TransactionList extends Component {
 
                             <div className="transaction-button">
                                 <Link className='link-to' to={`/transactions/edit/${transaction.id}`}>
-                                    <span className="button-span small-button"> Edit   </span>
+                                    <span className="button-span small-button">✎</span>
                                 </Link>
                             </div>
                             <div className="transaction-button">
-                                <input   className="small-button" type="submit" value="Delete" onClick={()=>{this.handlerDeleteTransaction(transaction.id)}} />
+                                <input   className="small-button" type="submit" value="✗" onClick={()=>{this.handlerDeleteTransaction(transaction.id)}} />
                             </div>
                         </div>
                     })

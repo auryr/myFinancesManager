@@ -33,6 +33,18 @@ label{
     font-weight: bold;
 }
 
+
+.small-button,#edit-button,#delete-button{
+  width: 8vh;
+  height: 6vh;
+  margin-left:1vh;
+}
+
+#cancel-button{
+  width: 13vh;
+  margin-left:1vh;
+}
+
 input[type=text],input[type=password]
 input[type=email],input[type=date],input[type=password],
 ,input[type=email]{
@@ -104,6 +116,7 @@ input{
 
 input[type=submit], .button-span {
     border-radius: 10px;
+
 }
 
 label{
@@ -190,6 +203,11 @@ input{
     font-size: 2.5vh;
     border-radius: 5px;
 }
+
+input[type=number]{
+   width: 20px;
+}
+
 
 .small-input{
     width: 40px;
@@ -387,13 +405,24 @@ label{
 
 
 .sub-container3 {
-    background-color:rgba(0, 0, 0, .4)  ;
-    width: 98%;
+    background-color:rgba(0, 0, 0, .8)  ;
+    width: 96%;
+    height: 96%;
     border-radius: 10px;
     position: relative;
     margin: auto;
-    padding: 10px;
+    padding: 30px;
     box-shadow: 0 0 10px #040000;
+}
+
+.sub-container4 {
+    background-color:transparent; ;
+    border-radius: 10px;
+    position: relative;
+    margin: auto;
+    padding: 50px;
+    display:flex;
+
 }
 
 .main-container2  {
@@ -482,21 +511,14 @@ main {
     margin: auto;
     height: 80vh;
     overflow: auto;
-    background: #f5f5f5;
+    background: transparent;
     color: black;
     display: flex;
     flex-direction: column;
 }
 
 .small-list {
-    width: 70%;
-    margin: auto;
-    height: 80vh;
-    overflow: auto;
-    background: #f5f5f5;
-    color: black;
-    display: flex;
-    flex-direction: column;
+    width: 60%;
 }
 
 .transaction-list-header{
@@ -512,8 +534,6 @@ main {
 .transaction-list-header > div {
     border-top: 8px solid #FC4A1A;
 }
-
-
 
 .transaction-list-header{
     width: 98%;
@@ -684,40 +704,7 @@ a:active {
 
 }
 
-.edit-container {
-  width: 60%;
-  position: relative;
-  left: 20%;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25),
-  0 10px 10px rgba(0,0,0,0.22);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 
-.hero-quote {
-  color: #EDE9E9;
-  width: 100%;
-  font-size: 30px;
-  font-weight: 400;
-  padding-top: 2em;
-  padding-bottom: 2em;
-}
-
-.form > form > div:nth-child(3) > input {
-  border-radius: 100px;
-  color: #dcd0c0;
-  background-color: #FC4A1A;
-}
-
-.hero-button {
-  height: 100px;
-  /* width: 200px; */
-  border-radius: 100px;
-  color: #dcd0c0;
-  background-color: #FC4A1A;
-  padding: 15px;
-}
 
 .welcome-text {
   font-size: 60px;

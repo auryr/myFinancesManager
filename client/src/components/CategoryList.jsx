@@ -49,15 +49,21 @@ class CategoryList extends Component {
       					<div   className="transaction-no" >
       						{index +1}
       					</div>
+
 				      	<div   className="transaction-detail" >
 				      		{category.name}
                         </div>
-				      	<div   className="transaction-description" >
-				      		{category.description}
-				      	</div>
+
+                        <div   className="transaction-description" >
+                            {category.description}
+                        </div>
+
+                        <div   className="transaction-detail" >
+                            {category.operation}
+                        </div>
 
 			            <div className="transaction-button">
-				      		<input type="submit" value="Delete"
+				      		<input id="delete-button"  type="submit" value="✕"
 					       onClick={
 					       		()=>{this.handlerDeleteCategory(category.id)}
 					       	} />
@@ -65,7 +71,7 @@ class CategoryList extends Component {
 
 			            <div className="transaction-button">
 			                <Link to={`/categories/edit/${category.id}`}>
-			                    <span className="button-span small-button">Edit</span>
+			                    <input type="submit"id="edit-button" value="✎" />
 			                </Link>
 			            </div>
 
@@ -80,7 +86,7 @@ class CategoryList extends Component {
   	render() {
     	return (
             <div className="main-container">
-                <div  className="small-list" >
+                <div  className="transaction-list small-list" >
                 <div>
                     <div  className="transaction-list-header">
                         <div  className="transaction-no" >
@@ -103,6 +109,11 @@ class CategoryList extends Component {
                         </div>
 
                         <div className="transaction-button">
+                        </div>
+                        <div className="transaction-button">
+                            <Link className='link-to' to={`/user/${this.props.userData.id}`}>
+                                <input type="submit" id="cancel-button" value="Back" / >
+                            </Link>
                         </div>
                     </div>
         		    {this.renderCategoryList()}
