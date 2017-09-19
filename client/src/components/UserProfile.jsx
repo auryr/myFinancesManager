@@ -16,7 +16,7 @@ class UserProfile extends Component {
         this.handlerloadList = this.handlerloadList.bind(this);
     }
 
-    componentDidMount() {
+    componentDidMount(){
         axios.get(`/users/id/${this.props.user.id}`)
         .then(res => {
             this.setState({
@@ -28,7 +28,6 @@ class UserProfile extends Component {
             })
         })
         .then(() => {
-            console.log(this.state);
             this.handlerloadList();
         })
     }
@@ -53,29 +52,79 @@ class UserProfile extends Component {
                 <div className="main-container">
                     <div className="sub-container3">
                         <div className="sub-container4">
+                            <div  className="transaction-list" >
+
                                 <div  className="transaction-list-header">
-                                    <div  className="transaction-no" >
-                                        <h1 className="transaction-info" >#</h1>
-                                    </div>
 
                                     <div  className="transaction-detail" >
-                                        <h1 className="transaction-info">Name</h1>
+                                        <h1 className="transaction-info">Budget</h1>
                                     </div>
 
                                     <div  className="transaction-description" >
-                                        <h1 className="transaction-info" >Description</h1>
+                                        <h1 className="transaction-info" >Range</h1>
                                     </div>
 
-                                    <div  className="transaction-detail" >
-                                        <h1 className="transaction-info">Type</h1>
+                                    <div  className="transaction-name" >
+                                        <h1 className="transaction-info">Amount</h1>
                                     </div>
 
-                                    <div className="transaction-button">
+                                    <div  className="transaction-name" >
+                                        <h1 className="transaction-info">Incomes</h1>
                                     </div>
 
-                                    <div className="transaction-button">
+                                    <div  className="transaction-name" >
+                                        <h1 className="transaction-info">Expenses</h1>
                                     </div>
+
+                                    <div  className="transaction-name" >
+                                        <h1 className="transaction-info">Result</h1>
+                                    </div>
+
+                                    <div  className="transaction-name" >
+                                        <h1 className="transaction-info">Remainig</h1>
+                                    </div>
+
                                 </div>
+
+                                {(this.state.transactionDataLoaded) ?
+                                this.state.transactionData.map((transaction,index) => {
+                                    return <div  className="transaction-list-detail"  key={transaction.id}>
+                                        <div  className="transaction-detail" >
+                                            <h1 className="transaction-info">{transaction.name}</h1>
+                                        </div>
+                                        <div  className="transaction-description" >
+                                            <h1 className="transaction-info"> {transaction.initdate} to {transaction.enddate}</h1>
+                                        </div>
+
+                                        <div  className="transaction-name" >
+                                            <h1 className="transaction-info" >{transaction.budget}</h1>
+                                        </div>
+
+                                        <div  className="transaction-name" >
+                                            <h1 className="transaction-info">{transaction.incomes}</h1>
+                                        </div>
+
+                                        <div  className="transaction-name">
+                                            <h1 className="transaction-info">{transaction.expenses}</h1>
+                                        </div>
+
+                                        <div  className="transaction-name">
+                                            <h1 className="transaction-info">{(transaction.budget-transaction.expenses).toFixed(2)}</h1>
+                                        </div>
+
+                                        <div  className="transaction-name">
+                                            <h1 className="transaction-info">{(transaction.incomes-transaction.expenses).toFixed(2)}</h1>
+                                        </div>
+
+
+                                    </div>
+                                })
+                                : ""}
+
+
+                            </div>
+
+
                             <div className="user-info">
                                 <h1 className="link-to">{this.state.fullname}.</h1>
 
