@@ -162,7 +162,7 @@ class TransactionEdit extends Component {
                 {this.state.transactionDataLoaded  ? this.renderInfo() : ""}
 
                 {this.state.fireRedirect
-                ? <Redirect push to={`/transactions/${this.state.user_id}`} />
+                ? <Redirect push to={`/transactions/list`} />
                 : ''}
             </div>
         )

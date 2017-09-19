@@ -1,4 +1,4 @@
-\c myfinances_dev;
+-- \c myfinances_dev;
 
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,

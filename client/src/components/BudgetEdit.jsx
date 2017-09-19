@@ -123,7 +123,7 @@ class BudgetEdit extends Component {
       <div className="category-create">
         {this.renderEditBudget()}
         {this.state.fireRedirect
-          ? <Redirect push to={`/budgets/${this.state.user_id}`} />
+          ? <Redirect push to={`/budgets/list`} />
           : ''}
       </div>
     )

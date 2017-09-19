@@ -530,8 +530,9 @@ main {
 
 }
 
-.transaction-list-header > div {
-    border-top: 8px solid red;
+.transaction-list-header{
+    border-top: 8px solid  #FC4A1A;
+    border-radius: 10px;
 }
 
 .transaction-list-header{
@@ -546,9 +547,6 @@ main {
 
 }
 
-.transaction-list-header > div  {
-    border-top: 8px solid #FC4A1A;
-}
 
 .transaction-list-header > div >.transaction-info {
     color: black;
@@ -738,7 +736,10 @@ a:active {
   width: 100%;
 }
 
-
+.user-info{
+  width: 30%;
+  margin: 0;
+}
 
 
 

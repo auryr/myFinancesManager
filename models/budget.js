@@ -9,7 +9,7 @@ const Budget = {
      },
 
     update : function(budget){
-    return db.one(`UPDATE budget set name=$1, description=$2, amount=$3, initdate=$4, enddate=$5, amount
+    return db.one(`UPDATE budget set name=$1, description=$2, amount=$3, initdate=$4, enddate=$5
                     WHERE user_id=$6 and id=$7 RETURNING *`,
                 [budget.name, budget.description ,budget.amount,budget.initdate,budget.enddate, budget.user_id, budget.id])
     },

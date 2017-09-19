@@ -31,10 +31,10 @@ const Transaction = {
         return db.none("DELETE FROM transaction WHERE id=$1", [transactionId])
     },
 
-
     findByBudget : function(user_id){
           return db.query(`select b.name, b.initdate ,b .enddate, b.amount as budget, ex.amount as expenses , inc.amount as incomes from budget b  full join (select c.user_id,sum(t.amount) as amount , t.budget_id, c.operation from transaction t inner join category c on t.category_id = c.id WHERE c.operation='-' group by c.user_id,t.budget_id, c.operation)  as ex on ex.budget_id = b.id  full join (select c.user_id,sum(t.amount) as amount , t.budget_id, c.operation from transaction t inner join category c on t.category_id = c.id WHERE c.operation='+' group by c.user_id,t.budget_id, c.operation
-            ) as inc on inc.budget_id = b.id  WHERE  b.user_id=$1`,[user_id])
+
+            ) as inc on inc.budget_id = b.id  WHERE  b.user_id=$1 order by b.initdate desc`,[user_id])
     }
 
 }

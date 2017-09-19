@@ -113,7 +113,7 @@ class CategoryEdit extends Component {
             <div className="category-create">
                 {this.renderEditCategory()}
                     {this.state.fireRedirect
-                ? <Redirect push to={`/categories/${this.state.user_id}`} />
+                ? <Redirect push to={`/categories/list`} />
                 : ''}
             </div>
         )
