@@ -4,13 +4,13 @@ const Transaction = {
     create : function(transaction){
         console.log(transaction);
         return db.one(`INSERT INTO transaction(note, trdate, amount , receipt , category_id, budget_id)
-                      VALUES( $1, $2, $3, $4, $5, (select id from budget WHERE to_date(initdate, 'yyyy-mm-dd') >= to_date($2,'yyyy-mm-dd') and  to_date(enddate, 'yyyy-mm-dd') <= to_date($2, 'yyyy-mm-dd') FETCH FIRST 1 ROWS ONLY )) RETURNING *`,
+                      VALUES( $1, $2, $3, $4, $5, (select id from budget WHERE to_date($2,'yyyy-mm-dd')>= to_date(initdate, 'yyyy-mm-dd')  and to_date($2, 'yyyy-mm-dd') <= to_date(enddate, 'yyyy-mm-dd') FETCH FIRST 1 ROWS ONLY )) RETURNING *`,
                 [transaction.note, transaction.trdate, transaction.amount, transaction.receipt,transaction.category_id])
      },
 
     update : function(transaction,id){
         return db.one(`UPDATE transaction set note=$1, trdate=$2, amount=$3, receipt=$4, category_id=$5,
-                       budget_id = (select id from budget WHERE to_date(initdate, 'yyyy-mm-dd') >= to_date($2,'yyyy-mm-dd') and  to_date(enddate, 'yyyy-mm-dd') <= to_date($2, 'yyyy-mm-dd') FETCH FIRST 1 ROWS ONLY   )
+                       budget_id = (select id from budget WHERE to_date($2,'yyyy-mm-dd')>= to_date(initdate, 'yyyy-mm-dd')  and to_date($2, 'yyyy-mm-dd') <= to_date(enddate, 'yyyy-mm-dd')  FETCH FIRST 1 ROWS ONLY   )
                     WHERE id=$6 RETURNING *`,
                 [transaction.note, transaction.trdate, transaction.amount, transaction.receipt, transaction.category_id, transaction.id])
     },

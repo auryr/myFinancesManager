@@ -11,6 +11,7 @@ class BudgetCreate extends Component {
           this.state = {
                name: '',
                description: '',
+               amount :0,
                initdate: null,
                enddate: null,
                user_id: null,
@@ -37,18 +38,20 @@ class BudgetCreate extends Component {
           this.setState({
                name: '',
                description: '',
+               amount :0,
                initdate: null,
                enddate: '-',
                user_id: null
           })
      }
 
-     handleCreateBudget(e, name, description, initdate, enddate) {
+     handleCreateBudget(e, name, description, amount, initdate, enddate) {
           e.preventDefault();
           let user_id=this.state.user_id;
           axios.post('/budgets', {
                name,
                description,
+               amount,
                initdate,
                enddate,
                user_id,
@@ -78,6 +81,7 @@ class BudgetCreate extends Component {
                          <form onSubmit={(e) => this.handleCreateBudget(e,
                          this.state.name,
                          this.state.description,
+                         this.state.amount,
                          this.state.initdate,
                          this.state.enddate
                          )}>
@@ -90,6 +94,12 @@ class BudgetCreate extends Component {
                                    <label>Description</label>
                                    <textarea name="description" value={this.state.description} onChange={this.handleInputChange} required />
                               </div>
+
+                              <div className="input-container">
+                                   <label>Amount</label>
+                                   <input  className="normal-input" type="number" name="amount" placeholder="" value={this.state.amount} onChange={this.handleInputChange} required />
+                              </div>
+
 
                              <div className="input-container2">
                                    <label>Init Date </label>

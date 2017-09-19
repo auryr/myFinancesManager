@@ -6,6 +6,7 @@ budgetController={
         Budget.create({
             name :req.body.name,
             description:req.body.description,
+            amount:req.body.amount,
             initdate:req.body.initdate,
             enddate:req.body.enddate,
             user_id:req.body.user_id,
@@ -25,6 +26,7 @@ budgetController={
         Budget.update({
             name :req.body.name,
             description:req.body.description,
+            amount:req.body.amount,
             initdate:req.body.initdate,
             enddate:req.body.enddate,
             user_id:req.body.user_id,

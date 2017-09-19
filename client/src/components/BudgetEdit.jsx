@@ -13,6 +13,7 @@ class BudgetEdit extends Component {
             id:null,
             name: '',
             description: '',
+            amount:0,
             initdate: null,
             enddate: null,
             user_id: null,
@@ -31,6 +32,7 @@ class BudgetEdit extends Component {
                 id: res.data.data.id,
                 name: res.data.data.name,
                 description: res.data.data.description,
+                amount:res.data.data.amount,
                 initdate: res.data.data.initdate,
                 enddate: res.data.data.enddate,
                 user_id :this.props.userData.id,
@@ -47,11 +49,12 @@ class BudgetEdit extends Component {
         });
     }
 
-    handleEditBudget(e, name, description, initdate, enddate, user_id) {
+    handleEditBudget(e, name, description, amount, initdate, enddate, user_id) {
         e.preventDefault();
         axios.put(`/budgets/${this.state.id}`, {
             name,
             description,
+            amount,
             initdate,
             enddate,
             user_id,
@@ -76,6 +79,7 @@ class BudgetEdit extends Component {
                         <form onSubmit={(e) => this.handleEditBudget(e,
                             this.state.name,
                             this.state.description,
+                            this.state.amount,
                             this.state.initdate,
                             this.state.enddate,
                             this.state.user_id
@@ -88,6 +92,12 @@ class BudgetEdit extends Component {
                                 <label> Description </label>
                                 <input  className="normal-input" type="text" name="description"  value={this.state.description} onChange={this.handleInputChange} required />
                             </div>
+
+                            <div className="input-container">
+                                <label>Amount</label>
+                                <input  className="normal-input" type="number" name="amount" placeholder="" value={this.state.amount} onChange={this.handleInputChange} required />
+                            </div>
+
                             <div className="input-container2">
                                    <label>Init Date </label>
                                    <input type="date" name="initdate" id="initdate" value={this.state.initdate} placeholder="" onChange={this.handleInputChange} required />

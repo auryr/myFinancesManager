@@ -3,15 +3,15 @@ const Budget = {
 
   // budget
     create : function(budget){
-        return db.one(`INSERT INTO budget(name, description, initdate , enddate , user_id)
-                VALUES( $1, $2, $3, $4, $5) RETURNING *`,
-                [budget.name, budget.description, budget.initdate, budget.enddate,budget.user_id])
+        return db.one(`INSERT INTO budget(name, description, amount, initdate , enddate , user_id)
+                VALUES( $1, $2, $3, $4, $5 , $6) RETURNING *`,
+                [budget.name, budget.description ,budget.amount, budget.initdate, budget.enddate,budget.user_id])
      },
 
     update : function(budget){
-    return db.one(`UPDATE budget set name=$1, description=$2, initdate=$3, enddate=$4
-                    WHERE user_id=$5 and id=$6 RETURNING *`,
-                [budget.name, budget.description ,budget.initdate,budget.enddate, budget.user_id, budget.id])
+    return db.one(`UPDATE budget set name=$1, description=$2, amount=$3, initdate=$4, enddate=$5, amount
+                    WHERE user_id=$6 and id=$7 RETURNING *`,
+                [budget.name, budget.description ,budget.amount,budget.initdate,budget.enddate, budget.user_id, budget.id])
     },
 
     findAll : function(){
