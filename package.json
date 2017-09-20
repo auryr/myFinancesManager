@@ -33,5 +33,6 @@
     "pg-promise": "^6.5.1",
     "react-transition-group": "^2.2.0",
     "yarn": "^0.27.5"
-  }
+  },
+  "deploy": "cd client && yarn build && cp -a ./build/ ../public/"
 }

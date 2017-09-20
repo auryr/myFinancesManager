@@ -32,11 +32,15 @@ app.listen(PORT,()=>{
   console.log(`App listening on port ${PORT}`)
 });
 
-app.get('/home', (req, res) => {
-  res.send('Page loaded');
+// app.get('/home', (req, res) => {
+//   res.send('Page loaded');
+// });
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.set('images', path.join(__dirname, 'public/images'));
+// app.set('images', path.join(__dirname, 'public/images'));
 
 const authRoutes = require("./routes/authRoutes");
 app.use("/auth", authRoutes)
