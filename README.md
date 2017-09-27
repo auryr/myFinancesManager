@@ -1,5 +1,5 @@
 # 'Finances manager' App
-![App URL](https://boiling-inlet-66474.herokuapp.com)
+![App URL] (https://boiling-inlet-66474.herokuapp.com)
 <img src="images/dashboard.png" width="800px">
 
 <img src="images/transactions.png" width="800px">
